@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Rubik", sans-serif;
+
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  background: #131025 url(./assets/images/bg_noise.png);
+  position: relative;
+  color: #fff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.-translate-50 {
+  transform: translateX(-50%);
+}
+
+.mdz-title {
+  background: linear-gradient(91.68deg, #D61D28 23.94%, #D39124 79.38%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-stroke-width: inherit;
+  -webkit-text-stroke-color: inherit;
+}
+
+.h4-blue {
+  font-size: 24px;
+  line-height: 33px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  background: linear-gradient(91.68deg, #0057FF 23.94%, #0095FF 79.38%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-shadow: 0px 10px 20px rgb(0 51 182 / 35%);
+  font-weight: bold;
+}
+
+.wrapper {
+  width: 768px;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
+.header_flex {
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  grid-gap: 30px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  justify-content: space-between;  
+}
+
+.dutch-detail-two-sides {
+  text-align: center;
+}
+
+.dutch-det-left {
+  color: #0057FF;
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.dutch-det-right {
+  color: #00f9e5;
+  font-size: 18px;
+  font-weight: 400;
+  font-weight: bold;
+}
+
+.blue-font {
+  color: #0057FF;
+}
+
+.grey-blue-font {
+  color: #00f9e5;
+}
+
+.claim-text-wrapper {
+  width: 100%;
+
+  border: 2px solid #0157FF;
+  border-radius: 10px;
+}
+
+.payment-info {
+  border: 1px solid #0157FF;
+  border-radius: 10px;
+}
+
+.payment-info img {
+  border-radius: 10px;
+}
+
+.payment-info-text p {
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 0!important;
+}
+
+.payment-info-text h5 {
+  font-weight: bold;
+  color: #00f9e5;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-size: 18px;
+}
+
+.ape-number {
+  background: rgba(72, 149, 221, 0.41);
+  border: 1px solid #0157FF;
+  border-image: none;
+  border-image: initial;
+  border-radius: 10px;
+}
+
+.mint-button {
+  width: 155px;
+  height: 40px;
+  background: linear-gradient(91.68deg, #0057FF 23.94%, #0095FF 79.38%);
+  box-shadow: 0px 10px 20px rgb(0 133 255 / 40%);
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  transition: all ease-in-out 300ms;
+}
+
+.mint-button:hover {
+  box-shadow: 0px 37px 20px -20px rgb(0 51 182 / 20%);
+  transform: translate(0px, -4px) scale(1.01);
+}

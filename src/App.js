@@ -1,7 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 
+import React, { useState } from 'react';
+
 import twitterimg from "./assets/images/twitter.svg";
+import discord from "./assets/images/discort.svg";
+import instagram from "./assets/images/instagram.svg";
+import opensea from "./assets/images/opensea.svg";
 import line_bg_1 from "./assets/images/line-bg-1.svg";
 import ellipse_bg from "./assets/images/ellipse-bg.png";
 import ellipse_bg2 from "./assets/images/ellipse-bg-2.png";
@@ -11,6 +16,22 @@ import Navbar_btn from './components/navbar-btn';
 import LogoButton from './components/logo-btn';
 
 function App() {
+  const [count, setCount] = useState(1);
+
+  let incrementCount = () => {
+    if (count >= 5) return;
+    setCount(count + 1);
+  };
+
+  let decrementCount = () => {
+    if (count == 0) return;
+    setCount(count - 1);
+  };
+
+  //reset counter 
+  const setMaxCount = () =>{
+    setCount(5);
+  }
   return (
     <div className="App h-99">
       {/* <header className="App-header">
@@ -27,7 +48,7 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <img src={line_bg_1} className="absolute top-0 left-0 w-full object-contain" />
+      <img src={line_bg_1} className="absolute top-0 left-0 h-full object-contain" />
       
       <img src={ellipse_bg2} className="absolute top-80 left-1/2 max-w-xs object-contain -translate-50" />
 
@@ -36,9 +57,10 @@ function App() {
           <LogoButton />
 
           <div className='flex gap-1'>
-            <Navbar_btn classname="ml-auto" imgsrc={twitterimg} imgalt="Twitter Logo" imghref="https://twitter.com/metadogznft"/>
-            <Navbar_btn imgsrc={twitterimg} imgalt="Twitter Logo" imghref="https://twitter.com/metadogznft"/>
-            <Navbar_btn imgsrc={twitterimg} imgalt="Twitter Logo" imghref="https://twitter.com/metadogznft"/>
+            <Navbar_btn classname="mr-2" imgsrc={twitterimg} imgalt="Twitter Logo" imghref="https://twitter.com/metadogznft"/>
+            <Navbar_btn classname="mr-2"imgsrc={discord} imgalt="Twitter Logo" imghref="https://discord.gg/p9Mrb9HwX2"/>
+            <Navbar_btn classname="mr-2" imgsrc={instagram} imgalt="Twitter Logo" imghref="https://www.instagram.com/metadogz/"/>
+            <Navbar_btn classname="mr-2" imgsrc={opensea} imgalt="Twitter Logo" imghref="#"/>
           </div>
         </div>
 
@@ -89,13 +111,17 @@ function App() {
               </div>
               <div className="ape-number flex items-center p-3 mb-8">
                 <div className="minus relative cursor-pointer w-5 h-5 justify-center flex items-center">
-                  <h5 className='grey-blue-font text-2xl p-0 font-bold'>-</h5>
+                  <button className='grey-blue-font text-2xl p-0 font-bold'  onClick={decrementCount}>-</button>
                 </div>
-                <h4 className="grey-blue-font my-0 mx-3.5 p-0 font-bold text-2xl">1</h4>
-                <div className="plus relative cursor-pointer w-5 h-5 justify-center flex items-center" class="pluson">
-                  <h5 className='grey-blue-font text-2xl p-0 font-bold'>+</h5>
+                <h4 className="grey-blue-font my-0 mx-3.5 p-0 font-bold text-2xl">{count}</h4>
+                <div className="plus relative cursor-pointer w-5 h-5 justify-center flex items-center">
+                  <button className='grey-blue-font text-2xl p-0 font-bold' onClick={incrementCount}>+</button>
                 </div>
-                <button className="ape-max ml-auto">Set Max</button>
+                <button className="ape-max ml-auto text-[22px]" onClick={setMaxCount}>Set Max</button>
+              </div>
+              <div className='total-price grey-blue-font flex border-t-[1px] border-b-[1px] p-3 border-[#0157FF] mb-8'>
+                <h3 className='blue-font text-[22px] font-bold'> Total Price : </h3>
+                <h4 className='justify-right m-auto mr-0 text-[18px] font-bold'> { count > 0 ? (count * 0.3).toFixed(1) : 0} ETH</h4>
               </div>
               <div className='flex justify-center'>
                 <a className='mint-button'>

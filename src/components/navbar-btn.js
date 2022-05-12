@@ -2,7 +2,7 @@ function Navbar_btn({imgsrc, imgalt, imghref, classname}) {
     return (  
         <>
             <a className={classname} href={imghref}>
-                <img src={imgsrc} alt={imgalt} />
+                <img className="h-5" src={imgsrc} alt={imgalt} />
             </a>
         </>
     );

@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import twitterimg from "./assets/images/twitter.svg";
 import discord from "./assets/images/discort.svg";
@@ -15,8 +15,17 @@ import nft_01 from "./assets/images/nft-01.jpg"
 import Navbar_btn from './components/navbar-btn';
 import LogoButton from './components/logo-btn';
 
+import contractAbi from "./artifacts/abi.json"
+import whitelist from "./artifacts/whitelist.json";
+import w1list from "./artifacts/w1.json";
+import w2list from "./artifacts/w2.json";
+import w3list from "./artifacts/w3.json";
+
+const contractAddress = "0xa2B8845245B0f20F85E3C85448567BfdF4B166Bd";
+
 function App() {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
+  const [walletConnected, setWalletConnected] = useState(false);
 
   let incrementCount = () => {
     if (count >= 5) return;
@@ -32,22 +41,17 @@ function App() {
   const setMaxCount = () =>{
     setCount(5);
   }
+
+  const mint = () => {
+
+  }
+
+  useEffect(()=>{
+
+  });
+
   return (
     <div className="App h-99">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
       <img src={line_bg_1} className="absolute top-0 left-0 h-full object-contain" />
       
       <img src={ellipse_bg2} className="absolute top-80 left-1/2 max-w-xs object-contain -translate-50" />
@@ -124,7 +128,7 @@ function App() {
                 <h4 className='justify-right m-auto mr-0 text-[18px] font-bold'> { count > 0 ? (count * 0.3).toFixed(1) : 0} ETH</h4>
               </div>
               <div className='flex justify-center'>
-                <a className='mint-button'>
+                <a className='mint-button' onClick={mint}>
                   Mint
                 </a>
               </div>

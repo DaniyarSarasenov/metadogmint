@@ -26,7 +26,7 @@ import line_bg_1 from "./assets/images/line-bg-1.svg";
 import ellipse_bg from "./assets/images/ellipse-bg.png";
 import ellipse_bg2 from "./assets/images/ellipse-bg-2.png";
 
-const contractAddress = "0xa2B8845245B0f20F85E3C85448567BfdF4B166Bd";
+
 
 function App() {
   const [walletAddress, setWalletAddress] = useState('');
@@ -38,15 +38,17 @@ function App() {
         console.log("wallet connected", data[0])
       });
     } else {
-      toast.error("error", 'Can\'t Find Metamask Wallet. Please install it and reload again to mint NFT.');
+      toast.error('Can\'t Find Metamask Wallet. Please install it and reload again to mint NFT.');
     }
   }
 
-  window.ethereum.on('accountsChanged', function (accounts) {
-    if (walletAddress !== accounts[0]) {
-      setWalletAddress(accounts[0]);
-    }
-  });
+  if (window.ethereum) {
+    window.ethereum.on('accountsChanged', function (accounts) {
+      if (walletAddress !== accounts[0]) {
+        setWalletAddress(accounts[0]);
+      }
+    });
+  }
 
   // window.ethereum.on('chainChanged', (changedChainID) => {
   //   // console.log("changedChainID")
@@ -61,14 +63,13 @@ function App() {
 
   useEffect(() => {
     if (walletAddress === undefined || walletAddress == '') {
-      toast.info("Please Connect Your Wallet.");
       connectWallet();
     }
   }, [walletAddress]);
 
-  useEffect(async ()=>{
-    await connectWallet();
-  }, []);
+  // useEffect(async ()=>{
+  //   await connectWallet();
+  // }, []);
 
   return (
     <>   

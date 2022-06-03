@@ -13,12 +13,6 @@ import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast} from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
-import contractAbi from "./artifacts/abi.json"
-import whitelist from "./artifacts/whitelist.json";
-import w1list from "./artifacts/w1.json";
-import w2list from "./artifacts/w2.json";
-import w3list from "./artifacts/w3.json";
-
 import Header from './components/Header';
 import Body from './components/Body';
 

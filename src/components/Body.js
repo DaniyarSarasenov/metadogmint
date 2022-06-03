@@ -265,7 +265,7 @@ const Body = ({walletAddress}) => {
                 <h4 className='justify-right m-auto mr-0 text-[18px] font-bold'> { count > 0 ? (count * currentPrice).toFixed(2) : 0} ETH</h4>
               </div>
               <div className='flex justify-center'>
-                <a className='mint-button' onClick={mint}>
+                <a className='mint-button cursor-pointer' onClick={mint}>
                   Mint
                 </a>
               </div>

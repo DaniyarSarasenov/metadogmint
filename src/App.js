@@ -23,26 +23,26 @@ import ellipse_bg2 from "./assets/images/ellipse-bg-2.png";
 
 
 function App() {
-  const [walletAddress, setWalletAddress] = useState('');
+  
 
-  const connectWallet = async () => {
-    if(window.ethereum != null) {
-      await window.ethereum.request({method: 'eth_requestAccounts'}).then((data) => {
-        setWalletAddress(data[0]);
-        console.log("wallet connected", data[0])
-      });
-    } else {
-      toast.error('Can\'t Find Metamask Wallet. Please install it and reload again to mint NFT.');
-    }
-  }
+  // const connectWallet = async () => {
+  //   if(window.ethereum != null) {
+  //     await window.ethereum.request({method: 'eth_requestAccounts'}).then((data) => {
+  //       setWalletAddress(data[0]);
+  //       console.log("wallet connected", data[0])
+  //     });
+  //   } else {
+  //     toast.error('Can\'t Find Metamask Wallet. Please install it and reload again to mint NFT.');
+  //   }
+  // }
 
-  if (window.ethereum) {
-    window.ethereum.on('accountsChanged', function (accounts) {
-      if (walletAddress !== accounts[0]) {
-        setWalletAddress(accounts[0]);
-      }
-    });
-  }
+  // if (window.ethereum) {
+  //   window.ethereum.on('accountsChanged', function (accounts) {
+  //     if (walletAddress !== accounts[0]) {
+  //       setWalletAddress(accounts[0]);
+  //     }
+  //   });
+  // }
 
   // window.ethereum.on('chainChanged', (changedChainID) => {
   //   // console.log("changedChainID")
@@ -55,11 +55,11 @@ function App() {
   //   }
   // });
 
-  useEffect(() => {
-    if (walletAddress === undefined || walletAddress == '') {
-      connectWallet();
-    }
-  }, [walletAddress]);
+  // useEffect(() => {
+  //   if (walletAddress === undefined || walletAddress == '') {
+  //     connectWallet();
+  //   }
+  // }, [walletAddress]);
 
   // useEffect(async ()=>{
   //   await connectWallet();
@@ -87,9 +87,7 @@ function App() {
 
         <div className="flex flex-col relative">
           <Header/>
-          <Body 
-            walletAddress={walletAddress} 
-          />
+          <Body />
         </div>
     </div>
     </>
